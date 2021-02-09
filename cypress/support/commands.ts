@@ -33,6 +33,15 @@ Cypress.Commands.add("getBySelLike", (selector, ...args) => {
   return cy.get(`[data-test*=${selector}]`, ...args);
 });
 
+Cypress.Commands.add('myLogin', ({username, password}) => {
+  const signinPath = "/signin";
+
+  cy.visit(signinPath);
+  cy.get('#username').type(username);
+  cy.get('#password').type(password);
+  cy.get('button[type=submit]').click();
+})
+
 Cypress.Commands.add("login", (username, password, rememberUser = false) => {
   const signinPath = "/signin";
   const log = Cypress.log({

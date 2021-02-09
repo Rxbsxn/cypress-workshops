@@ -96,6 +96,8 @@ declare namespace Cypress {
      */
     login(username: string, password: string, rememberUser?: boolean): void;
 
+    myLogin({username: string, password: string}): void;
+
     /**
      * Logs-in user by using API request
      */
